@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>New Year's Resolutions {{ current_user.username | capitalize }}</h3>
+
+    <div class="card">
+        {% for post in posts %}
+            <a href="{{ url_for('detail', post_id=post.id) }}" class="card-body">{{ post.title }}</a>
+            <p>
+                <span style="font-size:0.8em" class="card-body">{{ post.date.strftime('%Y-%m-%d') }}
+                </span>
+              </p>         
+            
+        {% endfor %}
+    </div>
+
+{% endblock %}
